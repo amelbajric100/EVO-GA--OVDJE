@@ -1,0 +1,22 @@
+function nameClick()
+{
+	var myName = document.getElementById('myName');
+    myName.setAttribute("class", "nameStyle");
+	myName.innerHTML = "Hello, dear visitor!";
+
+	document.getElementById('me').setAttribute("class", "meStyle");
+}
+
+
+
+var character = document.getElementById("character");
+var block = document.getElementById("block");
+var counter=0;
+function jump(){
+    if(character.classList == "animate"){return}
+    character.classList.add("animate");
+    setTimeout(function(){
+        character.classList.remove("animate");
+    },300);
+}
+

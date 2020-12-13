@@ -1,0 +1,101 @@
+#test {
+    background-color: yellowgreen;
+    color:red;
+    text-align:center;
+    border:3px solid red; 
+    font-size:100%;
+    font-family:"Times New Roman", serif;
+    font-weight:bold;
+}
+ 
+pre {
+    text-align:center;
+    color:black;
+    text-decoration:underline;
+    text-decoration-color:gray;
+    text-decoration-style:solid;    
+}
+img {
+    Border-radius: 50%;
+    border:10px solid gray;
+}
+
+ 
+
+#div {
+    border:2px solid;
+    border-color: black;
+}
+
+ 
+
+#skills{
+    color:black;
+    font-weight:bold;
+    text-decoration:overline;
+    font-size:100%;
+    font-family:"Times New Roman";
+    text-align:center;
+}
+
+ 
+
+p {
+    font-weight:bold;
+    text-align:center;
+    font-family:"Times New Roman";
+    border-color: blue;
+}
+h3 {
+    border:2px solid gray;
+    color:gray;
+    font-weight:bold;
+    font-size:100%;
+    font-family:"Times New Roman";
+}
+
+#game{
+    width: 500px;
+    height: 200px;
+    border: 1px solid black;
+    margin: auto;
+}
+#character{
+    width: 20px;
+    height: 50px;
+    background-color: red;
+    position: relative;
+    top: 150px; //game height - character height (200 - 50)
+}
+@keyframes jump{
+    0%{top: 150px;}
+    30%{top: 100px;}
+    70%{top: 100px;}
+    100%{top: 150px;}
+}
+.animate{
+    animation: jump 300ms linear;
+}
+#block{
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    position: relative;
+    top: 130px; //game height - character height - block height (200 - 50 - 20)
+    left: 480px; //game width - block width (500 - 20)
+    animation: block 1s infinite linear;
+}
+@keyframes block{
+    0%{left: 500px} 
+    100%{left: -20px}
+}
+var block = document.getElementById("block");
+function checkDead(){
+    let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+    let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+    if(blockLeft<20 && blockLeft>-20 && characterTop>=130){
+        alert("Game over");
+    }
+}
+
+setInterval(checkDead, 10);
